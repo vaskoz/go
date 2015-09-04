@@ -256,7 +256,7 @@ func reloadPackage(arg string, stk *importStack) *Package {
 // The variable is obnoxiously long so that years from now when people find it in
 // their profiles and wonder what it does, there is some chance that a web search
 // might answer the question.
-var go15VendorExperiment = os.Getenv("GO15VENDOREXPERIMENT") != "0"
+var go15VendorExperiment = os.Getenv("GO15VENDOREXPERIMENT") == "1"
 
 // dirToImportPath returns the pseudo-import path we use for a package
 // outside the Go path.  It begins with _/ and then contains the full path

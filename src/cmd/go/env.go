@@ -33,6 +33,11 @@ func mkEnv() []envVar {
 	var b builder
 	b.init()
 
+	var go15VendorString = "0"
+	if os.Getenv("GO15VENDOREXPERIMENT") == "1" {
+		go15VendorString = "1"
+	}
+
 	env := []envVar{
 		{"GOARCH", goarch},
 		{"GOBIN", gobin},
@@ -44,7 +49,7 @@ func mkEnv() []envVar {
 		{"GORACE", os.Getenv("GORACE")},
 		{"GOROOT", goroot},
 		{"GOTOOLDIR", toolDir},
-		{"GO15VENDOREXPERIMENT", os.Getenv("GO15VENDOREXPERIMENT")},
+		{"GO15VENDOREXPERIMENT", go15VendorString},
 
 		// disable escape codes in clang errors
 		{"TERM", "dumb"},
